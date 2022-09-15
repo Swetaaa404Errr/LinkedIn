@@ -1,0 +1,149 @@
+<h1>User information</h1>
+
+
+
+<%= form_with model: @user_inf, url: user_info_path do |form| %>
+  <% form.hidden_field :user_id, value: @user_id%>
+    
+    <% if form.object.errors.any? %>
+     <div class="alert alert-danger">
+     <% form.object.errors.full_messages.each do |message| %>
+     <div><%= message %></div>
+      <% end %>
+     </div>
+     <% end %>
+
+    <div class="mb-3">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "form-control" , placeholder: "sweta3.com"%>
+    </div>
+
+
+  <form>
+  <div class="form-group" >
+    <label for="formGroupExampleInput">Username</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="sweta13">
+  </div>
+    
+   
+  <form>
+  <div class="form-group" >
+    <label for="formGroupExampleInput">ProfileLink</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="www.profilelink.com">
+  </div>
+
+
+    <div>
+    <form class="form-inline">
+  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Qualification</label>
+  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+    <option selected>Choose...</option>
+    <option value="1">B.E</option>
+    <option value="2">BTech</option>
+    <option value="3">BSC</option>
+    option value="4">BCA</option>
+    <option value="5">MCA</option>
+    <option value="6">Other</option>
+  </select>
+  </div>
+
+
+<div>
+  <form class="form-inline">
+  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Experience</label>
+  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+    <option selected>Choose...</option>
+    <option value="1">0-5</option>
+    <option value="2">5-10</option>
+    <option value="3">10-15</option>
+    option value="4">15-20</option>
+    <option value="5">20-25</option>
+    <option value="6">Other</option>
+  </select>
+  </div>
+
+  <form>
+  <div class="form-group">
+    <label for="formGroupExampleInput">Current Organisation</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="ABC Company">
+  </div>
+
+  <form>
+  <div class="form-group" >
+    <label for="formGroupExampleInput">Skills</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="C,Rails">
+  </div>
+   
+  <div>
+  JobRole
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault">
+    Web Engineer Trainee
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+  <label class="form-check-label" for="flexCheckChecked">
+    HR
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault">
+    QA
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+  <label class="form-check-label" for="flexCheckChecked">
+    Manager
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault">
+    Content Writer
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+  <label class="form-check-label" for="flexCheckChecked">
+    Business Development Head
+  </label>
+</div>
+</div>
+
+
+<div>
+<h6>Get Notification<h6>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Yes
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    No
+  </label>
+</div>
+</div>
+
+<div>
+<h6>profilepic<h6>
+<form>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="customFile">
+    <label class="custom-file-label" for="customFile">Choose file</label>
+  </div>
+</form>
+</div>
+
+
+
+    <div class="mb-3">
+    <%= form.submit "Submit" , class: "btn btn-primary" %>
+    </div>
+<% end %>
