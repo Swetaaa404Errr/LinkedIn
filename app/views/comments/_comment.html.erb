@@ -1,0 +1,15 @@
+<%= form_with(model: @comment,  html: { style: "min-width: 50%;" }) do |form| %>
+
+    <%= form.hidden_field :job_nav_id, value: @job_nav_id %>
+
+  
+ <% Comment.all.each do |comment| %>   
+   
+<p><%= comment.name   %></p>
+<p><%= comment.body   %></p>
+
+ <% end %>
+
+ <% end %>
+  
+

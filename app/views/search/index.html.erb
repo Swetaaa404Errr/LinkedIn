@@ -1,0 +1,16 @@
+<h1 class="text-center"><%= pluralize(@userj.count, "Result") %></h1>
+
+
+
+
+
+
+<table class="table table-dark table-striped">
+<tbody>
+    <% @userj.each do |user| %>
+    <tr>
+    <td><%= link_to user.email %></td>
+    </tr>
+    <% end %>
+</tbody>
+</table>

@@ -1,9 +1,17 @@
-<h1>User information</h1>
 
 
 
 <%= form_with model: @user_inf, url: user_info_path do |form| %>
-  <% form.hidden_field :user_id, value: @user_id%>
+ <%= form.hidden_field :user_id, value: @user_id %>
+
+  <section class="card my-5 shadow" style="background-color: rgba(114, 108, 248, 0.3);">
+                   <div class="card-body">
+      
+                    <h1 class="card-subtitle mb-3 text-white">Fill the form(User Information Form)</h1>
+      
+
+
+ 
     
     <% if form.object.errors.any? %>
      <div class="alert alert-danger">
@@ -19,131 +27,84 @@
     </div>
 
 
-  <form>
-  <div class="form-group" >
-    <label for="formGroupExampleInput">Username</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="sweta13">
-  </div>
+    <div class="mb-3">
+    <%= form.label :username %>
+    <%= form.text_field :username, class: "form-control" , placeholder: "sweta34"%>
+    </div>
+
+    <div class="mb-3">
+    <%= form.label :profileLink%>
+    <%= form.text_field :prof_link, class: "form-control" , placeholder: "www.google.com"%>
+    </div>
+   
     
-   
-  <form>
-  <div class="form-group" >
-    <label for="formGroupExampleInput">ProfileLink</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="www.profilelink.com">
+
+
+    <div class="mb-3">
+    <h6>Qualification</h6>
+    <%= form.select :qualification, ["Be", "BTech", "BA" ,"MCA" , "Bcom"] %>
+  </div>
+
+  <div class="mb-3">
+  <h6>Experience</h6>
+    <%= form.select :experience, ["0-5", "5-10", "10-15" ,"15-20" , "20-25"] %>
   </div>
 
 
-    <div>
-    <form class="form-inline">
-  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Qualification</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-    <option selected>Choose...</option>
-    <option value="1">B.E</option>
-    <option value="2">BTech</option>
-    <option value="3">BSC</option>
-    option value="4">BCA</option>
-    <option value="5">MCA</option>
-    <option value="6">Other</option>
-  </select>
+  <div class="mb-3">
+  <%= form.label :Current_organisation %>
+  <%= form.text_field :organisation, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+  <%= form.label :skills %>
+  <%= form.text_field :skills, class: "form-control" , placeholder: "c,rails" %>
+  </div>
+  
+  <div class="mb-3">
+  <%= form.label :job_role %>
+  <%= form.select :job_role, ["Developer", "Hr", "QA", "Project Manager", "Data Analyst"] %>
+  </div>
+
+  <div class="mb-3">
+  <%= form.label :notification %>
+ 
+  <%= form.radio_button :notification, 'Yes' %> Yes <br/>
+  <%= form.radio_button :notification, 'No' %> No <br/>
   </div>
 
 
-<div>
-  <form class="form-inline">
-  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Experience</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-    <option selected>Choose...</option>
-    <option value="1">0-5</option>
-    <option value="2">5-10</option>
-    <option value="3">10-15</option>
-    option value="4">15-20</option>
-    <option value="5">20-25</option>
-    <option value="6">Other</option>
-  </select>
-  </div>
 
-  <form>
-  <div class="form-group">
-    <label for="formGroupExampleInput">Current Organisation</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="ABC Company">
-  </div>
 
-  <form>
-  <div class="form-group" >
-    <label for="formGroupExampleInput">Skills</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="C,Rails">
-  </div>
-   
-  <div>
-  JobRole
-  <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-  <label class="form-check-label" for="flexCheckDefault">
-    Web Engineer Trainee
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-  <label class="form-check-label" for="flexCheckChecked">
-    HR
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-  <label class="form-check-label" for="flexCheckDefault">
-    QA
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-  <label class="form-check-label" for="flexCheckChecked">
-    Manager
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-  <label class="form-check-label" for="flexCheckDefault">
-    Content Writer
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-  <label class="form-check-label" for="flexCheckChecked">
-    Business Development Head
-  </label>
-</div>
+<div class="mb-3">
+<%= form.label :image, "Profile Picture" %>
+<%=form.file_field :image %>
 </div>
 
 
-<div>
-<h6>Get Notification<h6>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-  <label class="form-check-label" for="flexRadioDefault1">
-    Yes
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-  <label class="form-check-label" for="flexRadioDefault2">
-    No
-  </label>
-</div>
+
+<div class="mb-3">
+<%= form.label :cv, "Upload Cv" %>
+<%=form.file_field :cv %>
 </div>
 
-<div>
-<h6>profilepic<h6>
-<form>
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="customFile">
-    <label class="custom-file-label" for="customFile">Choose file</label>
-  </div>
-</form>
+<div class="mb-3">
+<%= form.label :certificates, "Upload Certificates" %>
+<%=form.file_field :certificates , multiple:true %>
 </div>
+
 
 
 
     <div class="mb-3">
     <%= form.submit "Submit" , class: "btn btn-primary" %>
+
+    
     </div>
+
+    </section>
 <% end %>
+
+<%= @current_user.email %>
+
+

@@ -10,8 +10,12 @@ class CreateUserInfs < ActiveRecord::Migration[6.1]
       t.string :skills
       t.string :job_role
       t.string :notification
+      
+      
+      
       t.string :cv
       t.string :image
+      t.string :certificates
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

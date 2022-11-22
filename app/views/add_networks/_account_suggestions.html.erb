@@ -1,0 +1,25 @@
+<h3>Suggestions to Connect </h3>
+
+<% @userv.each do |user| %>
+
+<section class="card my-5 shadow" style="background-color: rgba(114, 108, 248, 0.3);">
+<div class="card-body">
+
+
+    <div class="row">
+    <div class="col-sm-9 col-lg-10">
+    <%= link_to user.email, class: "text-dark" %>
+    </div>
+    </div>
+
+    <div>
+     <%= form_tag follow_account_path, method: :post, class: "float-right" do %>
+      <%= hidden_field_tag :follow_id, @user_id %>
+      <%= submit_tag "Follow", class: "btn btn-ifo btn-sm" %>
+      <% end %>
+     </div>
+
+</div>
+</section>
+<% end %>
+

@@ -1,0 +1,2 @@
+class AddNetwork < ApplicationRecord
+end

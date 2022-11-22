@@ -1,0 +1,14 @@
+<%= form_with(model: @job_applies,  html: { style: "min-width: 50%;" }) do |form| %>
+
+<%= form.hidden_field :job_nav_id, value: @job_nav_id %>
+
+<div class="mb-3">
+<%= form.label :cv, "Upload  your cv" %>
+<%=form.file_field :cv %>
+</div>
+
+ <div class="mb-3">
+    <%= form.submit "Submit" , class: "btn btn-primary" %>
+    </div>
+
+    <% end %>s

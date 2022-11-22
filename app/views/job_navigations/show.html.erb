@@ -1,0 +1,118 @@
+
+<%= form_with model: @job_navigation, url: job_show_path do |form| %>
+ <%= form.hidden_field :user_id, value: @user_id %>
+
+    
+   
+
+  
+     
+    
+   
+
+
+     <div class="d-flex justify-content-center">
+  
+
+   
+       
+
+
+
+
+
+    <% @job_navigation.each do |job_navigation| %>
+
+       <% if job_navigation.is_approved == true %>
+
+       <section class="card my-5 shadow" style="background-color: rgba(114, 108, 248, 0.3);">
+                   <div class="card-body">
+      
+                    <h3 class="card-subtitle mb-3 text-white">Application form  To post for Job Recruitment</h3>
+      
+
+    <div class=" mb-3">
+    <h5> By :</h5>
+    <%= job_navigation.user.email %>
+    </div>
+   
+    <div class=" mb-3">
+    <h5>JOB TITLE :</h5>
+    <%= job_navigation.jobtitle%>
+    </div>
+
+
+    
+
+    <div class=" mb-3">
+     <h5>JOB DESCRIPTION :</h5>
+     <%= job_navigation.jobdescription %>
+   
+    </div>
+
+    <div class=" mb-3">
+     <h5>NUMBER OF VACANCY :</h5>
+   
+     <%= job_navigation.novac %>
+   
+    </div>
+
+    <div class=" mb-3">
+    <h5>SKILL:</h5>
+     <%= job_navigation.skill%>
+     
+   
+    </div>
+
+      <div class=" mb-3">
+    <h5>JOB ROLE:</h5>
+     <%= job_navigation.jobrole%>
+   
+    </div>
+           
+      <div class=" mb-3">
+    <h5>JOB SECTOR:</h5>
+     <%= job_navigation.jobsector%>
+   
+    </div>
+
+<h4>To Apply for this Job click here</h4>
+<a class="btn btn-primary" href="job_apply" role="button">Apply</a>
+
+ <p>
+ 
+ <strong> Comments: </strong>
+
+ <%= render 'comment_posts/commentpost'  %>
+
+ <%= render 'comment_posts/formcomment'  %>
+ 
+ 
+ </p>
+
+ <a class="btn btn-primary" href="#" role="button">Addjobrole</a>
+   
+     </section>
+
+    
+           
+            
+               
+                <% end %>
+  
+    
+
+   
+ <% end %>
+ 
+  
+</div>
+
+<% end %>
+
+
+
+
+
+
+    

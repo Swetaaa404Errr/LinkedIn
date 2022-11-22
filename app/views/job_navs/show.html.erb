@@ -1,0 +1,97 @@
+
+
+
+<%= form_with model: @job_nav, url: job_navigation_path do |form| %>
+ <%= form.hidden_field :user_id, value: @user_id %>
+
+    
+   
+
+  
+     
+    
+   
+
+
+     <div class="d-flex justify-content-center">
+  
+
+   
+       
+
+
+
+
+
+    <% @job_nav.each do |job_nav| %>
+       <section class="card my-5 shadow" style="background-color: rgba(114, 108, 248, 0.3);">
+                   <div class="card-body">
+      
+                    <h3 class="card-subtitle mb-3 text-white">Application form  To post for Job Recruitment</h3>
+      
+
+   
+    <div class=" mb-3">
+    <h5>JOB TITLE :</h5>
+    <%= job_nav.jobtitle%>
+    </div>
+
+
+    
+
+    <div class=" mb-3">
+     <h5>JOB DESCRIPTION :</h5>
+     <%= job_nav.jobdescription %>
+   
+    </div>
+
+    <div class=" mb-3">
+     <h5>NUMBER OF VACANCY :</h5>
+   
+     <%= job_nav.novac %>
+   
+    </div>
+
+    <div class=" mb-3">
+    <h5>SKILL:</h5>
+     <%= job_nav.skill%>
+     
+   
+    </div>
+
+      <div class=" mb-3">
+    <h5>JOB ROLE:</h5>
+     <%= job_nav.jobrole%>
+   
+    </div>
+           
+      <div class=" mb-3">
+    <h5>JOB SECTOR:</h5>
+     <%= job_nav.jobsector%>
+   
+    </div>
+<%= render 'job_applies/jobapply' %>
+
+   
+     </section>
+           
+            
+               
+                <% end %>
+  
+    
+
+   
+ 
+ 
+  
+</div>
+
+<% end %>
+
+
+
+
+
+
+    

@@ -1,0 +1,25 @@
+<%= form_with(model: ,  html: { style: "min-width: 50%;" }) do |form| %>
+
+  <%= form.hidden_field :job_nav_id, value: @job_nav_id %>
+
+
+  
+
+    
+  <p>
+     <%= form.label :name %>
+     <%= form.text_field :name %>
+  </p>
+  <p>
+  <%= form.label :body %><br>
+  <%= form.text_area :body %>
+  </p>
+  <br>
+  <p>
+  <%= form.submit %>
+  </p>
+
+
+
+
+<% end %>
