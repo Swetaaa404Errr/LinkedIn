@@ -1,7 +1,8 @@
 class JobFieldsController < ApplicationController
 
-      
-  before_action :set_current_admin
+      before_action :require_admin
+
+  
     
     def new
         @job_field = JobField.new
@@ -13,7 +14,7 @@ class JobFieldsController < ApplicationController
     
     
         if @job_field.save
-            redirect_to jobsector_show_path, notice: "Successfully added a jobsector"
+            redirect_to job_field_path(@job_field), notice: "Successfully added a jobsector"
         else
             render :new, notice: "Please Provide valid data"
     end
@@ -21,13 +22,37 @@ class JobFieldsController < ApplicationController
     
     
     def show
-        @job_field = find_job_field
+        @job_field = JobField.find(params[:id])
     end
     
-    def destroy
-        session[:job_field_id] = nil
-        redirect_to jobadd_path, notice:"Deleted Job Sector"
-    end
+    
+def edit
+
+     @job_field = JobField.find(params[:id])
+
+end
+
+def update
+
+     @job_field = JobField.find(params[:id])
+     if @job_field.update(job_field_params)
+
+        redirect_to jobadd_path, notice: "Successfully updated jobfield"
+     else 
+
+        render :edit
+     end
+
+end
+
+def destroy
+    @job_field = JobField.find(params[:id])
+     if @job_field.destroy
+        redirect_to jobadd_path, notice: "Successfully deleted a jobield"
+     else
+        redirect_to jobadd_path, notice: "Couldnt a jobfield"
+     end
+end
     
     
     private
@@ -35,10 +60,7 @@ class JobFieldsController < ApplicationController
     def job_field_params
         params.require(:job_field).permit(:jobsection)
     end
-    
-    def find_job_field
-        JobField.find_by(jobsection: params[:jobsection])
-    end
+   
     
     
     end

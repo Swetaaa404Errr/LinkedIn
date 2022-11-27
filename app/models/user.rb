@@ -18,17 +18,17 @@ class User < ApplicationRecord
     
     has_secure_password
 
-    has_many :followed_users, foreign_key: :sender_id, class_name: 'Friend'
-
-    has_many :sendings, through: :followed_users
-
-    has_many :following_users, foreign_key: :sending_id, class_name: 'Friend'
-
-    has_many :senders, through: :following_users
+    
 
     
 
     validates :email, presence: true, format: {with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}
+
+    followability
+
+    def unfollow(user)
+      followerable_relationships.where(followable_id: user.id).destroy_all
+    end
 
     
    

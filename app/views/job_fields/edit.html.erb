@@ -1,4 +1,4 @@
-<%= form_with model: @job_field, url: new_job_field_path do |form| %>
+<%= form_with model: @job_field, url: edit_job_field_path do |form| %>
    
       
     <% if form.object.errors.any? %>
@@ -10,13 +10,13 @@
      <% end %>
 
 <div class="mb-3">
-<h3>Add a Job sector</h3>
+<h3>Edit Job sector</h3>
 <%= form.text_field :jobsection, class: "form-control" , placeholder: "IT"%>
 </div>
 
 
 <div class="mb-3">
-  <%= form.submit "Add" , class: "btn btn-primary" %>
+  <%= form.submit "Update" , class: "btn btn-primary" %>
   </div>
 
 <% end %>

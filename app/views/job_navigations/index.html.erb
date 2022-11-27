@@ -1,3 +1,5 @@
+
+
 <div class="container">
     <h2 class="text-center">Job Applications are waiting to be approved</h2>
 
@@ -12,23 +14,24 @@
         </thead>
         <tbody>
            
-               
-                <% @job_navigation.each do |job_navigation| %>
+               <% @job_navigation.each do |job_navigation| %>
+                
                     <td><%= job_navigation.user.email %></td>
                     <td><%= job_navigation.jobtitle %></td>
                     <td><%= job_navigation.novac %></td>
                     <% if job_navigation.is_approved ==false %>
                     <td id="<%= dom_id(job_navigation) %>"><%= link_to 'Approve',
-                     job_approved_path, remote: true, method: :patch,
+                     toggle_is_approved_job_navigation_path(id: job_navigation.id), remote: true, method: :patch,
                      class: "btn btn-#{ job_navigation.is_approved ? 'warning' : 'success'}",
                      data: { confirm: "Are you sure you want to approve this Review ?" } %> | 
-                     <%= link_to "Reject", job_reject_path, class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure you want to reject this review? This will delete the review"} %></td>
+                     <%= link_to "Reject", job_navigation_del_path(id: job_navigation.id), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure you want to reject this review? This will delete the review"} %></td>
                     <% else %>
-                    <h4> Approved by admin </h4>
+                    <td> Approved by admin </tds>
                     <% end %>
                 </tr>
+
                 <% end %>
-           
+               
         </tbody>
     </table>
 </div>

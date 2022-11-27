@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-  <%= form_with model: @job_navigation, url: job_recruit_path do |form| %>
+  <%= form_with model: @job_navigation do |form| %>
      <%= form.hidden_field :user_id, value: @user_id %>
    
     <% if form.object.errors.any? %>

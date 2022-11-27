@@ -6,13 +6,75 @@ Rails.application.routes.draw do
 
 
 
+resources :conversations do
+  resources :messages
+end
+
+get "jobadd" , to: "job_positions#job"
+
+resources :job_positions
+
+post "/job_positions/new" , to: "job_positions#create"
+
+patch "/job_positions/:id/edit" , to: "job_positions#update"
+
+get "/job_position/:id" , to: "job_positions#destroy" , as: 'job_position_delete'
+
+resources :job_fields
+
+post "/job_fields/new" , to: "job_fields#create"
+
+
+patch "/job_fields/:id/edit" , to: "job_fields#update"
+
+get "/job_field/:id" , to: "job_fields#destroy" , as: 'job_field_delete'
+
+get "/job_navigations/:id/edit" , to: "job_navigations#edit" , as: 'edit_job_navigation'
+
+
+resources :job_navigations 
+
+get "new_job_navigation" , to: "job_navigations#new"
+
+
+
+post "/job_navigations/new" , to: "job_navigations#create"
+
+get "/job_navigations/:id/toggle_is_approved" , to: "job_navigations#toggle_is_approved" , as: "toggle_is_approved"
+
+get "/job_navigations/:id/destroy" , to: "job_navigations#destroy" , as: "job_navigation_del"
+
+get "/job_navigation" , to: "job_navigations#show"
 
 
 
 
 
+
+
+ resources :job_navigations, only: %i[:index destroy] do   # Index page for only admin to approve or reject reviews
+    member do
+      patch :toggle_is_approved
+    end
+  end
 
    post "follow_account", to: "add_networks#follow_account" , as: 'follow_account'
+
+
+   resources :users
+
+   post '/users/:id/follow', to: 'users#follow', as: 'follow'
+  post '/users/:id/unfollow', to: 'users#unfollow', as: 'unfollow'
+  post '/users/:id/accept', to: 'users#accept', as: 'accept'
+  post '/users/:id/decline', to: 'users#decline', as: 'decline'
+  post '/users/:id/cancel', to: 'users#cancel', as: 'cancel'
+
+
+  get "notification", to: "users#notification"
+
+  get "connection", to: "users#connection"
+
+   
   
 
 
@@ -58,33 +120,15 @@ get "signing_in", to: "sections#new"
 post "signing_in", to: "sections#create"
 
 
-get "jobadd", to: "job_positions#index"
-
-get "jobrole_add", to: "job_positions#new"
-post "jobrole_add", to: "job_positions#create"
 
 
-get "jobrole_show", to: "job_positions#show"
 
-delete "jobrole_delete", to: "job_positions#destroy"
-
-get "jobsector_add", to: "job_fields#new"
-post "jobsector_add", to: "job_fields#create"
-
-
-get "jobsector_show", to: "job_fields#show"
-
-delete "jobsector_delete", to: "job_fields#destroy"
 
 
 
 
 get "job_part", to: "job_navigations#job"
 
-get "job_recruit", to: "job_navigations#new"
-post "job_recruit", to: "job_navigations#create"
-
-get "job_show", to: "job_navigations#show" 
 
 
 post "job_show", to: "comment_posts#create"
@@ -95,15 +139,11 @@ post "job_apply", to: "apply_jobs#create"
 
 get "add_user", to: "add_networks#index"
 
-get "job_review", to: "job_navigations#index"
 
-get "job_approved", to: "job_navigations#toggle_is_approved"
-
-get "job_reject", to: "job_navigations#destroy"
 
 post "follow_account", to: "add_networks#connection"
 
-get "notification", to: "add_networks#new"
+
 
 
 

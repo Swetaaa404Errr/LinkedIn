@@ -2,9 +2,12 @@
 
 
 
+<h3><%= @job_position.jobdesignation %> </h3>
 
-<h3><%= @job_position %> </h3>
+<%= link_to 'Edit', edit_job_position_path(@job_position)  %>
+
+<%= link_to 'Delete', job_position_delete_path(@job_position) , method: :delete , data: { confirm: 'Are you sure?'} %>
 
 
 
-<%= button_to "Delete", jobrole_delete_path, method: :delete, class: "nav-link" %>
+

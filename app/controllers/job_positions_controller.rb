@@ -3,8 +3,13 @@ class JobPositionsController < ApplicationController
 
 before_action :require_admin
 
+def job
+end
+
 
 def index
+
+    @job_position = JobPosition.all
  
 end
 
@@ -18,7 +23,7 @@ def create
 
 
     if @job_position.save
-        redirect_to jobrole_show_path, notice: "Successfully added a jobrole"
+        redirect_to job_position_path(@job_position), notice: "Successfully added a jobrole"
     else
         render :new, notice: "Please Provide valid data"
 end
@@ -26,12 +31,36 @@ end
 
 
 def show
-    @job_position = find_job_position
+    @job_position = JobPosition.find(params[:id])
+end
+
+
+def edit
+
+     @job_position = JobPosition.find(params[:id])
+
+end
+
+def update
+
+     @job_position = JobPosition.find(params[:id])
+     if @job_position.update(job_position_params)
+
+        redirect_to jobadd_path, notice: "Successfully updated jobrole"
+     else 
+
+        render :edit
+     end
+
 end
 
 def destroy
-    session[:job_position_id] = nil
-    redirect_to jobadd_path, notice:"Deleted Job Role"
+    @job_position = JobPosition.find(params[:id])
+     if @job_position.destroy
+        redirect_to jobadd_path, notice: "Successfully deleted a jobrole"
+     else
+        redirect_to jobadd_path, notice: "Couldnt a jobrole"
+     end
 end
 
 
@@ -41,9 +70,7 @@ def job_position_params
     params.require(:job_position).permit(:jobdesignation)
 end
 
-def find_job_position
-    JobPosition.find_by(jobdesignation: params[:jobdesignation])
-end
+
 
 
 end

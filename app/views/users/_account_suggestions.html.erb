@@ -1,0 +1,28 @@
+<h3>Suggestions to Connect </h3>
+
+<% @userv.each do |user| %>
+
+<section class="card my-5 shadow" style="background-color: rgba(114, 108, 248, 0.3);">
+<div class="card-body">
+
+
+    <div class="row">
+    <div class="col-sm-9 col-lg-10">
+    <%= link_to user.email, class: "text-dark" %>
+    </div>
+    </div>
+
+    <% if @current_user.following?(user) %>
+       <%= button_to "Unfollow", unfollow_path(user) %>
+    <% elsif @current_user.sent_follow_request_to?(user)%>
+       <%= button_to "Cancel follow request", cancel_path(user) %>
+    <% else %>
+       <%= button_to "Follow",  follow_path(user) %>
+
+       <% end %>
+
+   
+
+</div>
+</section>
+<% end %>

@@ -14,6 +14,8 @@ class JobNavigationsController < ApplicationController
     end
 
     def new
+
+        
      
         @job_navigation = JobNavigation.new
 
@@ -34,21 +36,22 @@ class JobNavigationsController < ApplicationController
         
     end
 
+    
+    
     def destroy
+      @job_navigation =JobNavigation.find(params[:id])
+      @job_navigation.destroy
+       redirect_to job_navigations_path, notice: 'Review has been deleted successfully'
+    end
 
-
-   
-    @job_navigation =JobNavigation.find_by(params[:job_navigation_id])
-    @job_navigation.update(is_approved: false)
-    redirect_to job_review_path, notice: 'Review has been deleted successfully'
-  end
+    
   
   def toggle_is_approved
   
      
-    @job_navigation = JobNavigation.find_by(params[:job_navigation_id])
+    @job_navigation = JobNavigation.find(params[:id])
     @job_navigation.update(is_approved: true)
-    redirect_to job_review_path, notice: 'The review is successfully approved'
+    redirect_to job_navigations_path, notice: 'The review is successfully approved'
   end
 
 

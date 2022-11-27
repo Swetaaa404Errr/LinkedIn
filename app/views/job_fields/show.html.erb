@@ -3,8 +3,13 @@
 
 
 
-<h3><%= @job_field %> </h3>
+<h3><%= @job_field.jobsection %> </h3>
+
+
+<%= link_to 'Edit', edit_job_field_path(@job_field)  %>
+
+<%= link_to 'Delete', job_field_delete_path(@job_field) , method: :delete , data: { confirm: 'Are you sure?'} %>
 
 
 
-<%= button_to "Delete", jobsector_delete_path, method: :delete, class: "nav-link" %>
+
