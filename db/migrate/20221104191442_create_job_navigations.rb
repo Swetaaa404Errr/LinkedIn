@@ -12,8 +12,6 @@ class CreateJobNavigations < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-    add_index :job_navigations, [:user_id, :created_at]
-
-
+    add_index :job_navigations, %i[user_id created_at]
   end
 end

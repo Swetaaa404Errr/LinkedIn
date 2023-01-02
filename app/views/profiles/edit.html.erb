@@ -1,0 +1,109 @@
+<%= form_with model: @profile do |form| %>
+ <%= form.hidden_field :user_id, value: @current_user.id %>
+
+  <section class="card my-5 shadow" style="background-color: rgba(114, 108, 248, 0.3);">
+                   <div class="card-body">
+      
+                    <h1 class="card-subtitle mb-3 text-white">Fill the form(User Information Form)</h1>
+      
+
+
+ 
+    
+    <% if form.object.errors.any? %>
+     <div class="alert alert-danger">
+     <% form.object.errors.full_messages.each do |message| %>
+     <div><%= message %></div>
+      <% end %>
+     </div>
+     <% end %>
+
+    <div class="mb-3">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "form-control" , placeholder: "sweta3.com"%>
+    </div>
+
+
+    <div class="mb-3">
+    <%= form.label :username %>
+    <%= form.text_field :username, class: "form-control" , placeholder: "sweta34"%>
+    </div>
+
+    <div class="mb-3">
+    <%= form.label :profileLink%>
+    <%= form.text_field :prof_link, class: "form-control" , placeholder: "www.google.com"%>
+    </div>
+   
+    
+
+
+    <div class="mb-3">
+    <h6>Qualification</h6>
+    <%= form.select :qualification, ["Be", "BTech", "BA" ,"MCA" , "Bcom"] %>
+  </div>
+
+  <div class="mb-3">
+  <h6>Experience</h6>
+    <%= form.select :experience, ["0-5", "5-10", "10-15" ,"15-20" , "20-25"] %>
+  </div>
+
+
+  <div class="mb-3">
+  <%= form.label :Current_organisation %>
+  <%= form.text_field :organisation, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+  <%= form.label :skills %>
+  <%= form.text_field :skills, class: "form-control" , placeholder: "c,rails" %>
+  </div>
+  
+  <div class="mb-3">
+  <%= form.label :jobrole %>
+  <%=   form.check_box "job_role" %> Developer
+  <%=   form.check_box "job_role" %> WebEngineer
+  <%=   form.check_box "job_role" %> System Engineer
+  <%=   form.check_box "job_role" %> Receiptionist
+  <%=   form.check_box "job_role" %> Cook
+  <%=   form.check_box "job_role" %> Caretaker
+   
+  </div>
+
+  <div class="mb-3">
+  <%= form.label :notification %>
+ 
+  <%= form.radio_button :notification, 'Yes' %> Yes <br/>
+  <%= form.radio_button :notification, 'No' %> No <br/>
+  </div>
+
+
+
+
+<div class="mb-3">
+<%= form.label :image, "Profile Picture" %>
+<%=form.file_field :image %>
+</div>
+
+
+
+<div class="mb-3">
+<%= form.label :cv, "Upload Cv" %>
+<%=form.file_field :cv %>
+</div>
+
+<div class="mb-3">
+<%= form.label :certificates, "Upload Certificates" %>
+<%=form.file_field :certificates , multiple:true %>
+</div>
+
+
+
+
+    <div class="mb-3">
+    <%= form.submit "update" , class: "btn btn-primary" %>
+
+    
+    </div>
+
+    </section>
+<% end %>

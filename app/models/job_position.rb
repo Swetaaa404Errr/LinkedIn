@@ -1,7 +1,3 @@
 class JobPosition < ApplicationRecord
-
-    validates :jobdesignation, presence: true
-
-    
-
+  validates :jobdesignation, presence: true
 end

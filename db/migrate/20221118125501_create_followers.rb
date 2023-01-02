@@ -5,7 +5,6 @@ class CreateFollowers < ActiveRecord::Migration[6.1]
       t.references :following, references: :users
       t.timestamps
     end
-     add_index :followers, [:user_id, :created_at]
-
+    add_index :followers, %i[user_id created_at]
   end
 end

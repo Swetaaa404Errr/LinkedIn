@@ -1,0 +1,35 @@
+
+<% Profile.all.each do |profile| %>
+
+ <section class="card my-5 shadow" style="background-color: rgba(114, 108, 248, 0.3);">
+                   <div class="card-body">
+      
+                    <h3 class="card-subtitle mb-3 text-white">Your Information</h3>
+      
+<h3><%= profile.username %> </h3>
+<h3><%= profile.email %> </h3>
+<h3><%= profile.prof_link %> </h3>
+<h3><%= profile.qualification%> </h3>
+<h3><%= profile.experience %> </h3>
+<h3><%= profile.organisation %> </h3>
+<h3><%= profile.skills %> </h3>
+<h3><%= profile.job_role %> </h3>
+<h3><%= profile.notification %> </h3>
+
+
+</div>
+
+</section>
+<%= link_to 'Edit', edit_profile_edit_path(profile)  %>
+
+
+
+
+<% end %>
+
+
+
+
+
+
+

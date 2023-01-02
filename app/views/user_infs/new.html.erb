@@ -62,8 +62,14 @@
   </div>
   
   <div class="mb-3">
-  <%= form.label :job_role %>
-  <%= form.select :job_role, ["Developer", "Hr", "QA", "Project Manager", "Data Analyst"] %>
+  <%= form.label :jobrole %>
+  <%=   form.check_box "job_role" %> Developer
+  <%=   form.check_box "job_role" %> WebEngineer
+  <%=   form.check_box "job_role" %> System Engineer
+  <%=   form.check_box "job_role" %> Receiptionist
+  <%=   form.check_box "job_role" %> Cook
+  <%=   form.check_box "job_role" %> Caretaker
+   
   </div>
 
   <div class="mb-3">

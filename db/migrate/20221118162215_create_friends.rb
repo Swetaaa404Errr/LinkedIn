@@ -1,8 +1,6 @@
 class CreateFriends < ActiveRecord::Migration[6.1]
   def change
     create_table :friends do |t|
-
-
       t.references :sending, references: :users
       t.references :sender, references: :users
 
@@ -11,9 +9,6 @@ class CreateFriends < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-
-     add_index :friends, [:user_id, :created_at]
-
-
+    add_index :friends, %i[user_id created_at]
   end
 end

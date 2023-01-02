@@ -1,5 +1,4 @@
 class JobMailer < ApplicationMailer
-
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -8,10 +7,10 @@ class JobMailer < ApplicationMailer
   def cv_uploaded(user, cv)
     @cv = cv
     mail(
-      from: "supportLinkedIn@gmail.com",
-       to: user.email, 
-       
-       subject: "Applicant has uploaded cv"
+      from: 'supportLinkedIn@gmail.com',
+      to: user.email,
+
+      subject: 'Applicant has uploaded cv'
     )
   end
 end

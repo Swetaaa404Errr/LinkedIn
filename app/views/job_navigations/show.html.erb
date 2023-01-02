@@ -1,8 +1,6 @@
 
-<%= form_with model: @job_navigation, url: job_show_path do |form| %>
- <%= form.hidden_field :user_id, value: @user_id %>
 
-    
+  
    
 
   
@@ -75,22 +73,17 @@
      <%= job_navigation.jobsector%>
    
     </div>
+    
 
-<h4>To Apply for this Job click here</h4>
-<a class="btn btn-primary" href="job_apply" role="button">Apply</a>
 
- <p>
- 
- <strong> Comments: </strong>
+<h2>Comments</h2>
+<%= render 'reviews/review' %>
 
- <%= render 'comment_posts/commentpost'  %>
+<h2>Add a comment:</h2>
+<%= render 'reviews/form' %>
 
- <%= render 'comment_posts/formcomment'  %>
  
  
- </p>
-
- <a class="btn btn-primary" href="#" role="button">Addjobrole</a>
    
      </section>
 
@@ -108,7 +101,6 @@
   
 </div>
 
-<% end %>
 
 
 

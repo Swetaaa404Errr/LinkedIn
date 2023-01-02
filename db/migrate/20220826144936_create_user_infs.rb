@@ -10,9 +10,7 @@ class CreateUserInfs < ActiveRecord::Migration[6.1]
       t.string :skills
       t.string :job_role
       t.string :notification
-      
-      
-      
+
       t.string :cv
       t.string :image
       t.string :certificates
@@ -20,8 +18,7 @@ class CreateUserInfs < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    
-    add_index :user_infs, [:user_id, :created_at]
 
+    add_index :user_infs, %i[user_id created_at]
   end
 end
