@@ -74,3 +74,5 @@ gem 'stimulus-rails', '~> 1.2'
 gem 'rubocop'
 
 gem 'rubocop-rails'
+
+gem 'letter_opener'

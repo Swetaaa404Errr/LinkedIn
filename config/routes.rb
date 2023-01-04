@@ -53,9 +53,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :job_navigations do
+
+  resources :job_navigations, only: %i[show] do
     resources :reviews
   end
+
+  resources :job_navigations, only: %i[show] do
+    resources :applies
+  end
+
+  post "/job_navigation", to: "job_navigations#show"
 
   resources :users
 
@@ -116,12 +123,14 @@ Rails.application.routes.draw do
 
   get "/profile/:id", to: "profiles#edit", as: "edit_profile_edit"
 
-  get "/profile", to: "profiles#show"
+  get "job_all", to: "job_navigations#all"
+
+  
+
 
   get "new_profile", to: "profiles#new"
 
   root to: "main#index"
 
-  resources :user_infs
-  get "new_user_inf", to: "user_infs#new"
+  get "dashboard", to: "profiles#dashboard"
 end

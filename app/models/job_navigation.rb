@@ -1,7 +1,7 @@
 class JobNavigation < ApplicationRecord
   belongs_to :user
 
-  has_many :apply_jobs
+  has_many :applies
   has_many :reviews
   has_many :comment_posts
 

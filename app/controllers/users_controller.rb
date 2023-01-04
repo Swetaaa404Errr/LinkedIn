@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_current_user
 
+  before_action :require_admin, only: %i[destroy]
+
   def notification; end
 
   def connection; end
 
   def list
-    @userl = User.all
+    @userl = User.where.not(admin: true)
   end
 
   def index

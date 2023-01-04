@@ -1,4 +1,4 @@
-<%= form_with model: @review, url: comm_path(@job_navigation) do |form| %>
+<%= form_with model: @job_navigation, @job_navigation.reviews do |form| %>
   <p>
     <%= form.label :reviewer %><br>
     <%= form.text_field :reviewer %>

@@ -1,24 +1,24 @@
 class User < ApplicationRecord
   has_many :user_infs
 
-  has_many :job_navigations
+  has_many :job_navigations, dependent: :destroy
 
-  has_many :comment_posts
-  has_many :apply_jobs
+  has_many :comment_posts, dependent: :destroy
+  has_many :apply_jobs, dependent: :destroy
 
-  has_many :followers
+  has_many :followers, dependent: :destroy
 
-  has_many :connections
+  has_many :connections, dependent: :destroy
 
-  has_many :friends
+  has_many :friends, dependent: :destroy
 
-  has_many :messages
+  
 
-  has_many :chats
+  has_many :chats, dependent: :destroy
 
   has_many :participants, dependent: :destroy
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
 
   has_secure_password
 

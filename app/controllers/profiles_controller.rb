@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_current_user
 
   def index
-    @profile = Profile.all
+    @profile = Profile.new
   end
 
   def new
@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
     @c_user.profile = @profile
 
     if @profile.save
-      @profile.update(exist: true)
+      
       redirect_to profiles_path, notice: 'User Information Saved Thank you'
     else
 
@@ -25,7 +25,10 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.all
+   
+    @profile = @current_user.profile.find(params[:id])
+
+    
   end
 
   def edit
@@ -41,6 +44,9 @@ class ProfilesController < ApplicationController
 
       render :edit
     end
+  end
+
+  def dashboard
   end
 
   private

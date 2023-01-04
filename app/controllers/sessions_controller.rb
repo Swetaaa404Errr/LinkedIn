@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         redirect_to jobadd_path
 
       else
-        redirect_to profiles_path
+        redirect_to dashboard_path
       end
     else
       flash[:alert] = 'Invalid email or password'

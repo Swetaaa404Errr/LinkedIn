@@ -37,6 +37,10 @@ class JobNavigationsController < ApplicationController
   end
 
   def show
+    @job_navigation = JobNavigation.find(params[:id])
+  end
+
+  def all
     @job_navigation = JobNavigation.all
   end
 
