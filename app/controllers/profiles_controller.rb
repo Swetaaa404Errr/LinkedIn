@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_current_user
 
   def index
-    @profile = Profile.new
+    @profile = @current_user.profile
   end
 
   def new
@@ -10,10 +10,10 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @c_user = @current_user
-    @profile = Profile.create(profile_params)
+    
+    @profile = @curent_user.profile.create(profile_params)
 
-    @c_user.profile = @profile
+    
 
     if @profile.save
       

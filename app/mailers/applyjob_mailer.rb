@@ -1,10 +1,10 @@
 class ApplyjobMailer < ApplicationMailer
 
-    def new_applyjob(user, cv)
-
-        @cv = cv
+    def new_applyjob(user, file)
+     attachments[file.filename.to_s] = file.download
         mail(
-            to: user.email,
+            to: user,
+            
             subject: "New Application for your job",
         )
     end
