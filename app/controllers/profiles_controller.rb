@@ -1,22 +1,20 @@
+# frozen_string_literal: true
+
 class ProfilesController < ApplicationController
+
   before_action :set_current_user
 
-  def index
-    @profile = @current_user.profile
-  end
+  def index; end
 
   def new
     @profile = Profile.new
   end
 
   def create
-    
     @profile = @curent_user.profile.create(profile_params)
 
-    
-
     if @profile.save
-      
+
       redirect_to profiles_path, notice: 'User Information Saved Thank you'
     else
 
@@ -25,10 +23,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-   
     @profile = @current_user.profile.find(params[:id])
-
-    
   end
 
   def edit
@@ -47,8 +42,10 @@ class ProfilesController < ApplicationController
   end
 
   def dashboard
+  
   end
 
+  
   private
 
   def profile_params

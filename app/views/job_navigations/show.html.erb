@@ -48,17 +48,11 @@
    
     </div>
 
-    <h2>Apply For This Job:</h2>
-    <%= form_with model: [ @job_navigation, @job_navigation.applies.build ] do |form| %>
-  <p>
-   <div class="mb-3">
-     <%= form.label :cv, "Upload Cv" %>
-     <%=form.file_field :cv %>
-  </div>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+    
+     
+    <%= render "applies/form" %>
+
+    
 
     <h2>Add a comment:</h2>
 <%= form_with model: [ @job_navigation, @job_navigation.reviews.build ] do |form| %>

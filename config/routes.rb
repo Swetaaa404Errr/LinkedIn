@@ -53,14 +53,15 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :job_navigations, only: %i[show] do
     resources :reviews
   end
 
-  resources :job_navigations, only: %i[show] do
+  resources :job_navigations, only: %i[show edit] do
     resources :applies
   end
+
+ get "/job_navigations/:job_navigation_id/applies/:id/edit", to: "job_navigations#edit"
 
   post "/job_navigation", to: "job_navigations#show"
 
@@ -124,9 +125,6 @@ Rails.application.routes.draw do
   get "/profile/:id", to: "profiles#edit", as: "edit_profile_edit"
 
   get "job_all", to: "job_navigations#all"
-
-  
-
 
   get "new_profile", to: "profiles#new"
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JobFieldsController < ApplicationController
   before_action :require_admin
 

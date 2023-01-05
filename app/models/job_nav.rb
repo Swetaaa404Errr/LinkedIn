@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JobNav < ApplicationRecord
   belongs_to :user
   has_many :comments

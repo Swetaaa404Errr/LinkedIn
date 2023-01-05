@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EnrollsController < ApplicationController
   def new
     @admin = Admin.new

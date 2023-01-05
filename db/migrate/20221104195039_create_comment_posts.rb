@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCommentPosts < ActiveRecord::Migration[6.1]
   def change
     create_table :comment_posts do |t|

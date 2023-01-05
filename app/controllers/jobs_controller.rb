@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JobssController < ApplicationController
   def new; end
 

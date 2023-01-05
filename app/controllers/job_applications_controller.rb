@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JobApplicationsController < ApplicationController
   def create
     @job_application = JobApplication.new(job_application_params)
@@ -6,7 +8,7 @@ class JobApplicationsController < ApplicationController
 
       author =
 
-       JobMailer.cv_uploaded.deliver_later
+        JobMailer.cv_uploaded.deliver_later
       flash[:alert] = 'Successfully Applied'
       redirect_to job_show_path
 

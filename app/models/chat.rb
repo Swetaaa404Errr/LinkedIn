@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Chat < ApplicationRecord
   before_create :confirm_participant
 

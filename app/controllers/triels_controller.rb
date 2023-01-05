@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TrielsController < ApplicationController
   def new
     @triel = Triel.new

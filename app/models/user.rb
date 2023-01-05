@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :user_infs
 
@@ -11,8 +13,6 @@ class User < ApplicationRecord
   has_many :connections, dependent: :destroy
 
   has_many :friends, dependent: :destroy
-
-  
 
   has_many :chats, dependent: :destroy
 

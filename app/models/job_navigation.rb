@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JobNavigation < ApplicationRecord
   belongs_to :user
 

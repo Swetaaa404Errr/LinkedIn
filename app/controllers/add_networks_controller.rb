@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddNetworksController < ApplicationController
   before_action :set_current_user
 

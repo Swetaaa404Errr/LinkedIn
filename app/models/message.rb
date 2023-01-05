@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Conversation < ActiveRecord::Base
   belongs_to :conversation
   belongs_to :user

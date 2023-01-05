@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentPostsController < ApplicationController
   def new
     @comment_post = CommentPost.new(comment_post_params)
