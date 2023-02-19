@@ -5,7 +5,11 @@ class JobNavigationsController < ApplicationController
 
   before_action :require_admin, only: %i[destroy toggle_is_approved]
 
+  respond_to :js, only: :vote
+
   def job; end
+
+  
 
   def index
     @job_navigation = JobNavigation.all
@@ -45,6 +49,23 @@ class JobNavigationsController < ApplicationController
   def all
     @job_navigation = JobNavigation.all
   end
+
+ 
+  def vote
+    @job_navigation = JobNavigation.find(params[:id])
+
+  
+      if !@current_user.liked? @job_navigation
+        @job_navigation.liked_by @current_user
+      elsif @current_user.liked? @job_navigation
+      @job_navigation.unliked_by @current_user
+      end
+     
+     
+   
+  end
+
+  
 
   private
 

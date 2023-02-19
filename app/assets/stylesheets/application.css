@@ -12,4 +12,65 @@
  *
  *= require_tree .
  *= require_self
+
+ 
+ *= require font-awesome
+ 
  */
+
+.bg-container {
+  width: 100%;
+  height: 800px;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-color: rgba(175, 25, 25, 0.089);
+
+  overflow: hidden;
+}
+
+.bg-container img {
+  width: 70px;
+  height: auto;
+}
+
+.posi {
+  position: relative;
+  top: 200px;
+}
+
+.logo {
+  font-size: 2em;
+  position: relative;
+  top: 20px;
+  border-style: solid;
+  border-color: rgb(139, 139, 243);
+}
+
+.size {
+  width: 50%;
+  margin: auto;
+}
+
+.sel {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}
+
+.col {
+  color: rgb(241, 153, 201);
+}
+
+.post-actions {
+  margin-bottom: 20px;
+}
+
+.curs {
+  cursor: pointer;
+}
+.active {
+  color: rgb(245, 89, 115);
+}

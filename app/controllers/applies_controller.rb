@@ -18,11 +18,9 @@ class AppliesController < ApplicationController
   end
 
   def edit
-   @job_navigation = JobNavigation.find(params[:job_navigation_id])
-   @apply = @job_navigation.applies.find(params[:job_navigation_id])
-
+    @job_navigation = JobNavigation.find(params[:job_navigation_id])
+    @apply = @job_navigation.applies.find(params[:job_navigation_id])
   end
-
 
   private
 

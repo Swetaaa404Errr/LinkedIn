@@ -66,9 +66,6 @@ gem 'followability', '~> 1.1'
 
 gem 'ransack', '~> 3.2'
 
-gem 'omniauth', '~> 1.9.1'
-gem 'omniauth-linkedin-oauth2'
-
 gem 'turbo-rails', '~> 1.3'
 
 gem 'stimulus-rails', '~> 1.2'
@@ -78,3 +75,15 @@ gem 'rubocop'
 gem 'rubocop-rails'
 
 gem 'letter_opener'
+
+gem 'omniauth', '~> 1.9.1'
+gem 'omniauth-linkedin-oauth2'
+
+gem 'devise'
+
+gem 'acts_as_votable'
+
+gem "font-awesome-rails"
+
+gem 'active_storage_validations'
+

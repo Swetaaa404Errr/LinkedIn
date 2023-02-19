@@ -11,7 +11,7 @@
      <% end %>
 
    
-  <section class="card my-5 shadow" style="background-color: rgba(114, 108, 248, 0.3);">
+  <section class="card my-5 shadow" style="background-color: rgb(3, 3, 53);">
     <div class="card-body">
       
       <h3 class="card-subtitle mb-3 text-white">Application form  To post for Job Recruitment</h3>
@@ -21,27 +21,27 @@
 
 
 
-     <div class=" mb-3">
+     <div class=" mb-3 text-light">
     <%= form.label :job_title %>
     <%= form.text_field :jobtitle, class: "form-control" , placeholder: "Developer"%>
     </div>
 
-    <div class=" mb-3">
+    <div class=" mb-3 text-light">
     <%= form.label :job_description %>
     <%= form.text_field :jobdescription, class: "form-control" %>
     </div>
 
-    <div class=" mb-3">
+    <div class=" mb-3 text-light">
     <%= form.label :vacancy %>
     <%= form.text_field :novac, class: "form-control" %>
     </div>
 
-    <div class=" mb-3">
+    <div class=" mb-3 text-light">
     <%= form.label :skill %>
     <%= form.text_field :skill, class: "form-control" %>
     </div>
 
-    <div class=" mb-3">
+    <div class=" mb-3 text-light">
   <h6>Job_Role</h6>
 
   <% job_fields_array = JobField.all.map { |job_field| [job_field.jobsection] } %>
@@ -50,7 +50,7 @@
   </div>
 
 
-  <div class=" mb-3">
+  <div class=" mb-3 text-light">
   
   <h6>Job_Sector</h6>
 

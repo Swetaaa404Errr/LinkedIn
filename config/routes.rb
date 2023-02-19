@@ -61,10 +61,17 @@ Rails.application.routes.draw do
     resources :applies
   end
 
- get "/job_navigations/:job_navigation_id/applies/:id/edit", to: "job_navigations#edit"
+  get "/job_navigations/:job_navigation_id/applies/:id/edit", to: "job_navigations#edit"
 
   post "/job_navigation", to: "job_navigations#show"
 
+  resources :job_navigations do
+    member do
+      post "like", to: "job_navigations#vote"
+    end
+  end
+
+ 
   resources :users
 
   post "/users/:id/follow", to: "users#follow", as: "follow"
@@ -90,7 +97,7 @@ Rails.application.routes.draw do
   get "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"
 
-  delete "logout", to: "sessions#destroy"
+  get "logout", to: "sessions#destroy"
 
   get "password/reset", to: "password_resets#new"
   post "password/reset", to: "password_resets#create"
@@ -98,16 +105,8 @@ Rails.application.routes.draw do
   get "password/reset/edit", to: "password_resets#edit"
   patch "password/reset/edit", to: "password_resets#update"
 
-  get "user_info", to: "user_infs#new"
-  post "user_info", to: "user_infs#create"
-
-  get "signing_up", to: "enrolls#new"
-  post "signing_up", to: "enrolls#create"
-
-  delete "loggingout", to: "sections#destroy"
-
-  get "signing_in", to: "sections#new"
-  post "signing_in", to: "sections#create"
+  
+  
 
   get "job_part", to: "job_navigations#job"
 
@@ -120,15 +119,25 @@ Rails.application.routes.draw do
 
   post "follow_account", to: "add_networks#connection"
 
-  resources :profiles
+  get "all_job", to: "job_navigations#all"
 
-  get "/profile/:id", to: "profiles#edit", as: "edit_profile_edit"
+  resources :user_profiles
 
-  get "job_all", to: "job_navigations#all"
+  
+  resources :user_accounts
 
-  get "new_profile", to: "profiles#new"
+  get "new_user_account", to: "user_accounts#new"
+
+
+  resources :job_navigations do
+    resources :likes
+  end
+  get "link", to: "omniauth_callbacks#linkedin"
+
+  get "/auth/:provider/callback", to: "oauth#callback", as: "oauth_callback"
+  get "/auth/failure", to: "oauth#failure", as: "oauth_failure"
 
   root to: "main#index"
 
-  get "dashboard", to: "profiles#dashboard"
+  get "dashboard", to: "user_accounts#dashboard"
 end

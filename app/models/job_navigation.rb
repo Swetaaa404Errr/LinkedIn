@@ -3,9 +3,12 @@
 class JobNavigation < ApplicationRecord
   belongs_to :user
 
-  has_many :applies
+  
+  has_many :applies, dependent: :destroy
   has_many :reviews
   has_many :comment_posts
+
+  has_many :likes
 
   validates :jobtitle, presence: true
   validates :jobdescription, presence: true

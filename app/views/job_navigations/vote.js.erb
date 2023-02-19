@@ -1,0 +1,11 @@
+
+<script>
+      <% if @current_user.liked? @job_navigation %>
+       $('.like-btn').addClass('liked');
+      <% else %>
+      $('.like-btn').addClass('like-btn');
+
+         <% end %> 
+
+$('.likes-count').html("<%=@job_navigation.get_upvotes.size %>")
+</script>

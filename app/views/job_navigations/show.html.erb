@@ -1,67 +1,66 @@
- <section class="card my-5 shadow" style="background-color: rgba(114, 108, 248, 0.3);">
+ <section class="card my-5 shadow size" style="background-color: rgb(3, 3, 53);">
                    <div class="card-body">
       
-                    <h3 class="card-subtitle mb-3 text-white">Application form  To post for Job Recruitment</h3>
+                    <h3 class="card-subtitle mb-3 text-white">Application form  To Apply for Job</h3>
+                 
 
-<div class=" mb-3">
+<div class=" mb-3 text-light">
     <h5> By :</h5>
     <%= @job_navigation.user.email %>
     </div>
    
-    <div class=" mb-3">
+    <div class=" mb-3 text-light">
     <h5>JOB TITLE :</h5>
     <%= @job_navigation.jobtitle%>
     </div>
 
-
+   
     
 
-    <div class=" mb-3">
+    <div class=" mb-3 text-light">
      <h5>JOB DESCRIPTION :</h5>
      <%= @job_navigation.jobdescription %>
    
     </div>
 
-    <div class=" mb-3">
+    <div class=" mb-3 text-light">
      <h5>NUMBER OF VACANCY :</h5>
    
      <%= @job_navigation.novac %>
    
     </div>
 
-    <div class=" mb-3">
+    <div class=" mb-3 text-light">
     <h5>SKILL:</h5>
      <%= @job_navigation.skill%>
      
    
     </div>
 
-      <div class=" mb-3">
+      <div class=" mb-3 text-light">
     <h5>JOB ROLE:</h5>
      <%= @job_navigation.jobrole%>
    
     </div>
            
-      <div class=" mb-3">
+      <div class=" mb-3 text-light">
     <h5>JOB SECTOR:</h5>
      <%= @job_navigation.jobsector%>
    
     </div>
 
-    
-     
     <%= render "applies/form" %>
 
     
 
-    <h2>Add a comment:</h2>
+    <h2 class="text-light">Add a comment:</h2>
 <%= form_with model: [ @job_navigation, @job_navigation.reviews.build ] do |form| %>
   <p>
-    <%= form.label :reviewer %><br>
+    <%= form.label :reviewer , class: "text-light"%><br>
     <%= form.text_field :reviewer %>
   </p>
   <p>
-    <%= form.label :body %><br>
+    <%= form.label :body , class: "text-light"%><br>
     <%= form.text_area :body %>
   </p>
   <p>
@@ -69,16 +68,16 @@
   </p>
 <% end %>
 
-<h2>Comments</h2>
+<h2 class= "text-light">Comments</h2>
 <% @job_navigation.reviews.each do |review| %>
   <p>
-    <strong>Commenter:</strong>
-    <%= review.reviewer %>
+   
+    <h3 class= "col"><%= review.reviewer    %></h3>
   </p>
 
   <p>
-    <strong>Comment:</strong>
-    <%= review.body %>
+   
+   <h5 class= "text-light"> <%= review.body  %></h3>
   </p>
 <% end %>
 
