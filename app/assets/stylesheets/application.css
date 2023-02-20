@@ -50,6 +50,7 @@
 .size {
   width: 50%;
   margin: auto;
+  text-align: center;
 }
 
 .sel {
@@ -73,4 +74,12 @@
 }
 .active {
   color: rgb(245, 89, 115);
+}
+
+.outer img {
+  margin: auto;
+  width: 20%;
+  border-radius: 50%;
+  position: relative;
+  top: 10px;
 }

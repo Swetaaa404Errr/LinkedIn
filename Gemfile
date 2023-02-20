@@ -86,4 +86,4 @@ gem 'acts_as_votable'
 gem "font-awesome-rails"
 
 gem 'active_storage_validations'
-
+gem 'kt-paperclip', '~> 7.1', '>= 7.1.1'

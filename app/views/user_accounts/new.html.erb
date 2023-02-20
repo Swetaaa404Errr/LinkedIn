@@ -1,5 +1,5 @@
 
-  <%= form_with model: @user_account, :html => { :'data-ajax' => false } do |form| %>
+  <%= form_with model: @user_account, :html => { multipart: true } do |form| %>
      <%= form.hidden_field :user_id, value: @user_id %>
    
     <% if form.object.errors.any? %>
@@ -64,6 +64,7 @@
 
 
   <div class="field text-light">
+    <h5>Jobs</h5>
       <%= label_tag 'job_developer', 'Developer' %>
       <%= check_box_tag 'user_account[job][]', 'Developer', checked('Developer'), id: 'job_developer' %>
        <%= label_tag 'job_webEngineer', 'WebEngineer' %>
@@ -94,7 +95,7 @@
 <%= form.label :certificate, "Upload Certificates" %>
 
 
-<%=form.file_field :certificate , multiple:true %>
+<%=form.file_field :certificate, include_hidden: false , multiple: true %>
 
 </div>
 

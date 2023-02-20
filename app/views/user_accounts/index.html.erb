@@ -1,70 +1,55 @@
 <% if @current_user.user_accounts.count == 0 %>
-
-<a class="btn btn-primary" href="new_user_account" role="button">Fill</a>
-
+  <a class="btn btn-primary" href="new_user_account" role="button">Fill</a>
 <% else %>
-<% @user_account.each do |user_account| %>
-
-       <% if user_account.user.email == @current_user.email %>
-
-      
-
-       <section class="card my-5 shadow size" style="background-color: rgba(10, 4, 4, 0.822);">
-                   <div class="card-body">
-      
-                    <h3 class="card-subtitle mb-3 text-white">Your Profile</h3>
-      
-
-    <div class=" mb-3 text-light">
-    <h5> Email </h5>
-    <%= user_account.gmail %>
-
-    <div class=" mb-3 text-light">
-    <h5> username </h5>
-    <%= user_account.username  %>
-
-    <div class=" mb-3 text-light">
-    <h5> Profile Link </h5>
-    <%= user_account.link %>
-
-    <div class=" mb-3 text-light">
-    <h5> Qualificatioon </h5>
-    <%= user_account.qualificatioon %>
-
-    <div class=" mb-3 text-light">
-    <h5> Organisation </h5>
-    <%= user_account.orgganisation %>
-
-    <div class=" mb-3 text-light">
-    <h5> skiill </h5>
-    <%= user_account.skiill %>
-
-    <div class=" mb-3 text-light">
-    <h5> Job </h5>
-    <%= user_account.job %>
-     </div>
-
-     <div class=" mb-3 text-light">
-    <h5> Image </h5>
-    <%= user_account.picture %>
-     </div>
-
-     <div class=" mb-3 text-light">
-    <h5> CV </h5>
-    <%= user_account.cv %>
-     </div>
-
-     <div class=" mb-3 text-light">
-    <h5> Certificate </h5>
-    <%= user_account.certificate%>
-     </div>
-
-     <td><%= link_to 'Edit', edit_user_account_path(user_account)  %></td>
-    
-    </section>
+  <% @user_account.each do |user_account| %>
+    <% if user_account.user.email == @current_user.email %>
+      <section class="card my-5 shadow size" style="background-color: rgba(10, 4, 4, 0.822);">
+        <div class="card-body">
+          <h3 class="card-subtitle mb-3 text-white">Your Profile</h3>
+          <div class=" mb-3 text-light outer">
+            <%= image_tag user_account.picture.url %>
+          </div>
+          <div class=" mb-3 text-light">
+            <h5> Email </h5>
+            <%= user_account.gmail %>
+          </div>
+            <div class=" mb-3 text-light">
+            <h5> username </h5>
+            <%= user_account.username  %>
+          </div>
+          <div class=" mb-3 text-light">
+            <h5> Profile Link </h5>
+            <%= user_account.link %>
+          </div>
+          <div class=" mb-3 text-light">
+            <h5> Qualificatioon </h5>
+            <%= user_account.qualificatioon %>
+          </div>
+          <div class=" mb-3 text-light">
+            <h5> Organisation </h5>
+            <%= user_account.orgganisation %>
+          </div>
+          <div class=" mb-3 text-light">
+            <h5> skiill </h5>
+            <%= user_account.skiill %>
+          </div>
+          <div class=" mb-3 text-light">
+            <h5> Job </h5>
+            <%= user_account.job %>
+          </div>
+          <div class=" mb-3 text-light ">
+              <h5> CV </h5>
+              <%= link_to "Your CV", user_account.cv.url %>
+          </div>
+          <div class=" mb-3 text-light">
+            <h5> Certificate </h5>
+            <%= user_account.certificate%>
+          </div>
+        <td><%= link_to 'Edit', edit_user_account_path(user_account)  %></td>
+      </section>
+    <% end %>
+  <% end %>
 <% end %>
 
-<% end %>
-    
-    
-<% end %>
+
+  
