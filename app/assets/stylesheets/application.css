@@ -50,7 +50,6 @@
 .size {
   width: 50%;
   margin: auto;
-  text-align: center;
 }
 
 .sel {
@@ -82,4 +81,23 @@
   border-radius: 50%;
   position: relative;
   top: 10px;
+}
+
+.out img {
+  width: 10%;
+
+  border-radius: 50%;
+  position: relative;
+  right: 1%;
+  top: 0px;
+}
+
+.fl {
+  display: flex;
+}
+
+.head {
+  position: relative;
+  top: 40px;
+  margin: auto;
 }

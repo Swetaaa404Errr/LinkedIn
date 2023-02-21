@@ -23,9 +23,7 @@ class UserAccountsController < ApplicationController
   end
 end
 
-def show 
-   @user_account = @current_user.user_accounts.find(params[:id])
-end
+
 
 
   def edit
@@ -50,6 +48,6 @@ end
 
   def user_account_params
     params.require(:user_account).permit(:gmail, :username, :link, :expericencee, :orgganisation, :skiill,
-                                         :picture, :cv, :qualificatioon, :notification, certificate: [], job: []) 
+                                         :picture, :cv, :qualificatioon, :notification, :cvdownload, :bio, certificate: [], job: []) 
   end 
 end

@@ -23,7 +23,7 @@
 
      <div class=" mb-3 text-light">
     <%= form.label :gmail %>
-    <%= form.text_field :gmail, class: "form-control" , placeholder: "Developer"%>
+    <%= form.text_field :gmail, class: "form-control"%>
     </div>
 
     <div class=" mb-3 text-light">
@@ -62,10 +62,16 @@
     <%= form.text_field :skiill, class: "form-control" %>
     </div>
 
+     <div class=" mb-3 text-light">
+    <%= form.label :Bio %>
+    <%= form.text_field :bio, class: "form-control" %>
+    </div>
 
-  <div class="field text-light">
-    <h5>Jobs</h5>
-      <%= label_tag 'job_developer', 'Developer' %>
+     <div class="mb-3 text-light">
+
+     <h5>job </h5>
+
+     <%= label_tag 'job_developer', 'Developer' %>
       <%= check_box_tag 'user_account[job][]', 'Developer', checked('Developer'), id: 'job_developer' %>
        <%= label_tag 'job_webEngineer', 'WebEngineer' %>
       <%= check_box_tag 'user_account[job][]', 'WebEngineer', checked('WebEngineer'), id: 'job_webEngineer' %>
@@ -87,15 +93,29 @@
 
 
 
-<div class="mb-3 text-light">
+<div class="mb-3 text-light cv">
 <%= form.label :cv, "Upload Cv" %>
 <%=form.file_field :cv %>
 </div> 
-<div class="mb-3 text-light">
+
+<div class="mb-3 text-light" id="download" style="display: none;">
+    <%= form.label :CVDownload %>
+  
+    <%= form.radio_button :cvdownload,'Any Body' %> Any Body<br/>
+    <%= form.radio_button :cvdownload,'No Body' %> No Body <br/>
+     <%= form.radio_button :cvdownload,'Connections' %> Connections <br/>
+    </div>
+
+  </div>
+
+ 
+
+
+<div class="mb-3 text-light" >
 <%= form.label :certificate, "Upload Certificates" %>
 
 
-<%=form.file_field :certificate, include_hidden: false , multiple: true %>
+<%=form.file_field :certificate, multiple: true %>
 
 </div>
 
@@ -108,16 +128,17 @@
     <%= form.radio_button :notification, 'Yes' %> Yes <br/>
     <%= form.radio_button :notification, 'No' %> No <br/>
     </div>
-
-  </div>
-
-
-
-
-
-  <div class="d-flex text-center gap-3">
+     <div class="d-flex text-center gap-3">
   <%= form.submit "submit" , class: "btn btn-primary" %>
   </div>
+
+  </div>
+
+
+
+
+
+ 
 
  
   </section>

@@ -57,6 +57,8 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  get "/job_navigations/:job_navigation_id/reviews/:id", to: "reviews#destroy", as: "review_delete"
+
   resources :job_navigations, only: %i[show edit] do
     resources :applies
   end
@@ -136,6 +138,8 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback", to: "oauth#callback", as: "oauth_callback"
   get "/auth/failure", to: "oauth#failure", as: "oauth_failure"
+
+  get "/user/:id/profile", to: "users#profile", as: "profile"
 
   root to: "main#index"
 

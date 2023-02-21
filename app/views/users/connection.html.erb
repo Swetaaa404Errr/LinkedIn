@@ -1,5 +1,9 @@
 <% @current_user.followers.each do |user| %>
+    <section class="card my-5 shadow size" style="background-color: rgb(5,70,10);">
+<div class="card-body text-light">
     <%=user.username %> is following you
     <%= button_to "Unfollow", unfollow_path(user) %>
+    </div>
+    </section>
 
 <% end %>

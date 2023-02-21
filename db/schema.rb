@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_16_203245) do
+ActiveRecord::Schema.define(version: 2023_02_21_165911) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -292,8 +292,10 @@ ActiveRecord::Schema.define(version: 2023_02_16_203245) do
     t.binary "cv"
     t.binary "picture"
     t.binary "certificate"
-    t.boolean "notification" 
+    t.boolean "notification"
     t.string "job"
+    t.string "cvdownload"
+    t.string "bio"
     t.index ["user_id", "created_at"], name: "index_user_accounts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_user_accounts_on_user_id"
   end

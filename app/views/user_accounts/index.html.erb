@@ -3,11 +3,15 @@
 <% else %>
   <% @user_account.each do |user_account| %>
     <% if user_account.user.email == @current_user.email %>
-      <section class="card my-5 shadow size" style="background-color: rgba(10, 4, 4, 0.822);">
+      <section class="card my-5 shadow size" style="background-color: rgba(10, 4, 4, 0.822);text-align:center">
         <div class="card-body">
           <h3 class="card-subtitle mb-3 text-white">Your Profile</h3>
           <div class=" mb-3 text-light outer">
-            <%= image_tag user_account.picture.url %>
+          <% if user_account.picture.attached? %>
+            <%= image_tag user_account.picture.url  %>
+            <% else %>
+            <%= image_tag("https://i.pinimg.com/736x/d4/37/4b/d4374b6dc2934880eaa7a5e8989c1f64.jpg") %>
+            <% end %>
           </div>
           <div class=" mb-3 text-light">
             <h5> Email </h5>
@@ -16,7 +20,7 @@
             <div class=" mb-3 text-light">
             <h5> username </h5>
             <%= user_account.username  %>
-          </div>
+          </div> 
           <div class=" mb-3 text-light">
             <h5> Profile Link </h5>
             <%= user_account.link %>
@@ -32,6 +36,10 @@
           <div class=" mb-3 text-light">
             <h5> skiill </h5>
             <%= user_account.skiill %>
+          </div>
+          <div class=" mb-3 text-light">
+            <h5> Bio </h5>
+            <%= user_account.bio %>
           </div>
           <div class=" mb-3 text-light">
             <h5> Job </h5>

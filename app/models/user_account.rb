@@ -8,8 +8,8 @@ class UserAccount < ApplicationRecord
   validates :skiill, presence: true
   validates :orgganisation, presence: true
   validates :job, presence: true
-  validates :link, format: %r{\Ahttp(s)://.*?\.linkedin\.com/} 
-  validates :picture, attached: true, content_type: [:png, :jpg, :jpeg]
+  validates :link,allow_blank:true, format: %r{\Ahttp(s)://.*?\.linkedin\.com/} 
+  validates :picture,allow_blank:true, attached: true, content_type: [:png, :jpg, :jpeg]
   validates :cv, attached: true, content_type: [:pdf]
   validates :certificate, attached: true, content_type: [:pdf]
   before_save do
