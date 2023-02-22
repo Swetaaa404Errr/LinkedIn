@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddColumnsToUserAccounts < ActiveRecord::Migration[6.1]
   def change
     add_column :user_accounts, :cv, :binary

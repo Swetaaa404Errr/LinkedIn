@@ -1,27 +1,9 @@
+<h3 class="size"> Jobs That You Have Applied </h3>
 
+<% @job_navigation.each do |job_navigation| %>
+      <% pre_apply = job_navigation.applies.find {|apply| apply.user_id == @current_user.id} %>
 
-  
-   
-
-  
-     
-    
-   
-
-
-     <div>
-  
-
-   
-        
-
-
-
-
-
-    <% @job_navigation.each do |job_navigation| %>
-
-       <% if job_navigation.is_approved == true %>
+       <% if job_navigation.is_approved == true && (pre_apply) %>
 
      
 
@@ -88,6 +70,8 @@
    
     </div>
     
+ 
+
 
 
 <%= link_to 'Apply&Review', job_navigation_path(job_navigation) , class:"text-light" %>

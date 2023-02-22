@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UserAccountAttachmentsController < ApplicationController
-  before_action :set_user_account_attachment, only: %i[ show edit update destroy ]
+  before_action :set_user_account_attachment, only: %i[show edit update destroy]
 
   # GET /user_account_attachments or /user_account_attachments.json
   def index
@@ -7,8 +9,7 @@ class UserAccountAttachmentsController < ApplicationController
   end
 
   # GET /user_account_attachments/1 or /user_account_attachments/1.json
-  def show
-  end
+  def show; end
 
   # GET /user_account_attachments/new
   def new
@@ -16,8 +17,7 @@ class UserAccountAttachmentsController < ApplicationController
   end
 
   # GET /user_account_attachments/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /user_account_attachments or /user_account_attachments.json
   def create
@@ -25,7 +25,10 @@ class UserAccountAttachmentsController < ApplicationController
 
     respond_to do |format|
       if @user_account_attachment.save
-        format.html { redirect_to user_account_attachment_url(@user_account_attachment), notice: "User account attachment was successfully created." }
+        format.html do
+          redirect_to user_account_attachment_url(@user_account_attachment),
+                      notice: 'User account attachment was successfully created.'
+        end
         format.json { render :show, status: :created, location: @user_account_attachment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +41,10 @@ class UserAccountAttachmentsController < ApplicationController
   def update
     respond_to do |format|
       if @user_account_attachment.update(user_account_attachment_params)
-        format.html { redirect_to user_account_attachment_url(@user_account_attachment), notice: "User account attachment was successfully updated." }
+        format.html do
+          redirect_to user_account_attachment_url(@user_account_attachment),
+                      notice: 'User account attachment was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @user_account_attachment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +58,22 @@ class UserAccountAttachmentsController < ApplicationController
     @user_account_attachment.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_account_attachments_url, notice: "User account attachment was successfully destroyed." }
+      format.html do
+        redirect_to user_account_attachments_url, notice: 'User account attachment was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_account_attachment
-      @user_account_attachment = UserAccountAttachment.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_account_attachment_params
-      params.require(:user_account_attachment).permit(:user_account_id, :certificate)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user_account_attachment
+    @user_account_attachment = UserAccountAttachment.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_account_attachment_params
+    params.require(:user_account_attachment).permit(:user_account_id, :certificate)
+  end
 end

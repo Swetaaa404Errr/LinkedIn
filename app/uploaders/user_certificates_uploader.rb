@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserCertificatesUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -35,13 +37,13 @@ class UserCertificatesUploader < CarrierWave::Uploader::Base
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-   def extension_allowlist
-     %w(pdf)
-   end
+  def extension_allowlist
+    %w[pdf]
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-   def filename
-     original_filename
-   end
+  def filename
+    original_filename
+  end
 end

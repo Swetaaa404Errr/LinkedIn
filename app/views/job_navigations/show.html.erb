@@ -38,7 +38,13 @@
           <h5>JOB SECTOR:</h5>
           <%= @job_navigation.jobsector%>
         </div>
-        <%= render "applies/form" %>
+       
+        <% pre_apply = @job_navigation.applies.find {|apply| apply.user_id == @current_user.id} %>
+            <% if pre_apply%>
+              <button type="button" class="btn btn-lg btn-primary" disabled>You have Applied</button>
+            <% else %>
+               <%= render "applies/form" %>
+            <% end %>
 
       <h2 class="text-light">Add a comment:</h2>
       <%= form_with model: [ @job_navigation, @job_navigation.reviews.build ] do |form| %>
@@ -56,13 +62,11 @@
       <% end %>
       <h2 class= "text-light">Comments</h2>
         <% @job_navigation.reviews.each do |review| %>
-          <p>
+          
             <h3 class= "col"><%= review.reviewer    %></h3>
-          </p>
-          <p>
+         
             <h5 class= "text-light"> <%= review.body  %></h3>
-            <%= link_to 'Delete',[review.job_navigation,review], method: :delete, data: { confirm: 'Are you sure?'} %>
-          </p>
+            
         <% end %>
   </div>
 </section>

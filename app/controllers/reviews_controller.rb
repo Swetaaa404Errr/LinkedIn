@@ -2,7 +2,7 @@
 
 class ReviewsController < ApplicationController
   before_action :set_current_user
-   before_action :require_user_logged_in!
+  before_action :require_user_logged_in!
 
   def create
     @job_navigation = JobNavigation.find(params[:job_navigation_id])
@@ -20,7 +20,6 @@ class ReviewsController < ApplicationController
     @review.destroy
     redirect_to job_navigation_path(@job_navigation), notice: 'Review has been deleted successfully', status: :see_other
   end
-
 
   private
 

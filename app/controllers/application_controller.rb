@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-include ActiveStorage::SetCurrent
+  include ActiveStorage::SetCurrent
   before_action :set_query
 
   def set_query
@@ -32,6 +32,4 @@ include ActiveStorage::SetCurrent
   def require_user_logged_in!
     redirect_to sign_in_path, alert: 'You must be signed in to do that.' if @current_user.nil?
   end
-
- 
 end

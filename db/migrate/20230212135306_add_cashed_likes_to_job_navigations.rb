@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddCashedLikesToJobNavigations < ActiveRecord::Migration[6.1]
   def change
     change_table :job_navigations do |t|

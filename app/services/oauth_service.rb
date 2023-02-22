@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OauthService
   attr_reader :auth_hash
 

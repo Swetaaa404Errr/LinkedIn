@@ -74,7 +74,6 @@ Rails.application.routes.draw do
     end
   end
 
- 
   resources :users
 
   post "/users/:id/follow", to: "users#follow", as: "follow"
@@ -108,9 +107,6 @@ Rails.application.routes.draw do
   get "password/reset/edit", to: "password_resets#edit"
   patch "password/reset/edit", to: "password_resets#update"
 
-  
-  
-
   get "job_part", to: "job_navigations#job"
 
   post "job_show", to: "comment_posts#create"
@@ -126,11 +122,9 @@ Rails.application.routes.draw do
 
   resources :user_profiles
 
-  
   resources :user_accounts
 
   get "new_user_account", to: "user_accounts#new"
-
 
   resources :job_navigations do
     resources :likes
@@ -141,6 +135,8 @@ Rails.application.routes.draw do
   get "/auth/failure", to: "oauth#failure", as: "oauth_failure"
 
   get "/user/:id/profile", to: "users#profile", as: "profile"
+
+  get "applied", to: "job_navigations#applied"
 
   root to: "main#index"
 

@@ -2,16 +2,8 @@
 
 class JobNavigationsController < ApplicationController
   before_action :set_current_user
-    before_action :require_user_logged_in!, only: %i[index show all]
-
+  before_action :require_user_logged_in!, only: %i[show]
   before_action :require_admin, only: %i[destroy toggle_is_approved]
-
-  respond_to :js, only: :vote
-
-  def job; end
-
-  
-
   def index
     @job_navigation = JobNavigation.all
   end
@@ -22,10 +14,8 @@ class JobNavigationsController < ApplicationController
 
   def create
     @job_navigation = @current_user.job_navigations.new(job_navigation_params)
-
     if @job_navigation.save
-
-      redirect_to job_part_path, notice: 'Successfully created For Job Vacancy and waiting for approval of admin'
+      redirect_to dashboard_path, notice: 'Successfully created For Job Vacancy and waiting for approval of admin'
     else
       render :new, notice: 'Please Provide valid data'
     end
@@ -34,7 +24,7 @@ class JobNavigationsController < ApplicationController
   def destroy
     @job_navigation = JobNavigation.find(params[:id])
     @job_navigation.destroy
-    redirect_to job_navigations_path, notice: 'Review has been deleted successfully'
+    redirect_to job_navigations_path, notice: 'Review has been deleted successfully', status: :see_other
   end
 
   def toggle_is_approved
@@ -47,13 +37,9 @@ class JobNavigationsController < ApplicationController
     @job_navigation = JobNavigation.find(params[:id])
   end
 
-  def all
+  def applied
     @job_navigation = JobNavigation.all
   end
-
- 
-
-  
 
   private
 
