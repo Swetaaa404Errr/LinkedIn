@@ -89,3 +89,5 @@ gem 'active_storage_validations'
 gem 'kt-paperclip', '~> 7.1', '>= 7.1.1'
 
 gem 'jquery-rails'
+
+gem 'carrierwave'

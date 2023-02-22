@@ -48,6 +48,6 @@ end
 
   def user_account_params
     params.require(:user_account).permit(:gmail, :username, :link, :expericencee, :orgganisation, :skiill,
-                                         :picture, :cv, :qualificatioon, :notification, :cvdownload, :bio, certificate: [], job: []) 
+                                         :picture, :cv, :qualificatioon, :notification, :cvdownload, :bio, user_certificates: [], job: []) 
   end 
 end
