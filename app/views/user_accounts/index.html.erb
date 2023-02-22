@@ -1,8 +1,8 @@
 <% if @current_user.user_accounts.count == 0 %>
   <a class="btn btn-primary" href="new_user_account" role="button">Fill</a>
 <% else %>
-  <% @user_account.each do |user_account| %>
-    <% if user_account.user.email == @current_user.email %>
+  <% @current_user.user_accounts.each do |user_account| %>
+    
       <section class="card my-5 shadow size" style="background-color: rgba(10, 4, 4, 0.822);text-align:center">
         <div class="card-body">
           <h3 class="card-subtitle mb-3 text-white">Your Profile</h3>
@@ -55,7 +55,7 @@
           </div>
         <td><%= link_to 'Edit', edit_user_account_path(user_account)  %></td>
       </section>
-    <% end %>
+  
   <% end %>
 <% end %>
 
