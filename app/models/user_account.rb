@@ -3,7 +3,8 @@ class UserAccount < ApplicationRecord
   has_many_attached :certificate
   has_one_attached :picture
   has_one_attached :cv
-  mount_uploaders :user_certificates, UserCertificatesUploader
+ has_many :user_account_attachments
+     accepts_nested_attributes_for :user_account_attachments
   validates :username, presence: true
   validates :gmail, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'must be a valid email address' }
   validates :skiill, presence: true

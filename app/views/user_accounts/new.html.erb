@@ -11,7 +11,7 @@
      <% end %>
 
    
-  <section class="card my-5 shadow size" style="background-color: rgba(10, 4, 4, 0.822);">
+  <section class="card my-5 shadow " style="background-color: rgba(10, 4, 4, 0.822);">
     <div class="card-body">
       
       <h3 class="card-subtitle mb-3 text-white">User Information Form</h3>
@@ -111,13 +111,12 @@
  
 
 
-<div class="mb-3 text-light" >
-<%= form.label :certificate, "Upload Certificates" %>
-
-
-<%=form.file_field :user_certificates, multiple: true %>
-
-</div>
+<%= form.fields_for :user_account_attachments do |p| %>
+         <div class="field text-light">
+           <%= p.label :certificate %><br>
+           <%= p.file_field :certificate, :multiple => true, name:     "user_account_attachments[certificate][]" %>
+         </div>
+       <% end %>
 
 
  

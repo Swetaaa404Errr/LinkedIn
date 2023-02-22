@@ -12,17 +12,22 @@ class UserAccountsController < ApplicationController
 
   def new
     @user_account = UserAccount.new
+    @user_account_attachment = @user_account.user_account_attachments.new
   end
 
   def create
     @user_account = @current_user.user_accounts.new(user_account_params)
-
-    if @user_account.save
-      redirect_to user_accounts_path
-    else
-     render :new
+    respond_to do |format|
+         if @user_account.save
+           params[:user_account_attachments]['certificate'].each do |a|
+              @user_account_attachment = @user_account.user_account_attachments.create!(:certificate=> a,     :user_account_id => @user_account.id)
+           end
+           format.html { redirect_to user_accounts_path, notice: 'Post was successfully     created.' }
+         else
+           format.html { render action: 'new' }
+         end
+    end
   end
-end
 
 
 
@@ -49,6 +54,7 @@ end
 
   def user_account_params
     params.require(:user_account).permit(:gmail, :username, :link, :expericencee, :orgganisation, :skiill,
-                                         :picture, :cv, :qualificatioon, :notification, :cvdownload, :bio, user_certificates: [], job: []) 
+                                         :picture, :cv, :qualificatioon, :notification, :cvdownload, :bio, user_account_attachments_attributes: 
+  [:id, :user_account_id, :certificate], job: []) 
   end 
 end

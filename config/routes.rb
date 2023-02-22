@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_account_attachments
   resources :rooms do
     resources :chats
   end
