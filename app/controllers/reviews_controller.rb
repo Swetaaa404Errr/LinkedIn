@@ -2,6 +2,7 @@
 
 class ReviewsController < ApplicationController
   before_action :set_current_user
+   before_action :require_user_logged_in!
 
   def create
     @job_navigation = JobNavigation.find(params[:job_navigation_id])

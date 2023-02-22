@@ -2,6 +2,7 @@
 
 class JobNavigationsController < ApplicationController
   before_action :set_current_user
+    before_action :require_user_logged_in!, only: %i[index show all]
 
   before_action :require_admin, only: %i[destroy toggle_is_approved]
 
@@ -51,19 +52,6 @@ class JobNavigationsController < ApplicationController
   end
 
  
-  def vote
-    @job_navigation = JobNavigation.find(params[:id])
-
-  
-      if !@current_user.liked? @job_navigation
-        @job_navigation.liked_by @current_user
-      elsif @current_user.liked? @job_navigation
-      @job_navigation.unliked_by @current_user
-      end
-     
-     
-   
-  end
 
   
 
