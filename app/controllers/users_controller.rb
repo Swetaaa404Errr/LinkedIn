@@ -45,8 +45,9 @@ class UsersController < ApplicationController
   end
 
   def cancel
+    @user = User.find(params[:id])
     @current_user.remove_follow_request_for(@user)
-    redirect_to root_path
+    redirect_to users_path
   end
 
   def destroy
