@@ -6,21 +6,26 @@ class AppliesController < ApplicationController
   before_action :find_post
 
   def create
-    if already_applied?
-      flash[:notice] = 'You cant apply more than once'
-    else
-      @apply = @job_navigation.applies.create(user_id: @current_user.id)
-      return unless @apply.save
+    
+      @apply = @job_navigation.applies.create(apply_params)
+      if @apply.save
 
       author = @apply.job_navigation.user.email
 
-      file = @apply.cv
-      ApplyjobMailer.new_applyjob(author, file).deliver_now
+      fcv = @apply.cv
+      ApplyjobMailer.new_applyjob(author, fcv).deliver_now
+
+  
     end
     redirect_to job_navigation_path(@job_navigation)
   end
 
   private
+
+
+  def apply_params
+    params.require(:apply).permit(:cv).merge(user_id: @current_user.id)
+  end
 
   def find_post
     @job_navigation = JobNavigation.find(params[:job_navigation_id])
